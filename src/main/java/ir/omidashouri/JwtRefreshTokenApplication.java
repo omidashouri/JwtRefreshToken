@@ -24,7 +24,8 @@ public class JwtRefreshTokenApplication {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+//    after first run comment @Bean
+//    @Bean
     CommandLineRunner run(UserService userService){
         return args -> {
           userService.saveRole(new RoleEntity(null, "ROLE_USER"));

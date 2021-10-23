@@ -1,0 +1,23 @@
+CREATE DATABASE jwttoken_db
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+CREATE SCHEMA jwttoken_sc
+    AUTHORIZATION postgres;
+
+CREATE ROLE jwttoken WITH
+    LOGIN
+    SUPERUSER
+    CREATEDB
+    CREATEROLE
+    INHERIT
+    REPLICATION
+    CONNECTION LIMIT -1
+    PASSWORD 'jwttoken';
+
+ALTER DATABASE jwttoken_db OWNER TO jwttoken;
+ALTER SCHEMA jwttoken_sc OWNER TO jwttoken;
+
+
